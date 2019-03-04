@@ -1,0 +1,14 @@
+.centerDiv{
+  padding: 0 30vw;
+  text-align: center;
+}
+
+p.success{
+  color: green;
+  font-style: italic;
+}
+
+p.error{
+  color:red;
+  font-style: italic;
+}
