@@ -1,4 +1,3 @@
 # Login
-php
-Xampp
-localhost
+Complete login system using php.
+Xampp mysql.
