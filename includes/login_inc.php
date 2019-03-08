@@ -11,6 +11,7 @@ if (isset($_POST['login_submit'])) {
     exit();
   }
   else{
+    //Prepare statement to be more secure
     $checkExist = "SELECT * FROM users WHERE user_name=?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$checkExist)) {
@@ -32,11 +33,11 @@ if (isset($_POST['login_submit'])) {
           exit();
         }
         else if($checkPWD == false){
-          header("Location: ../index.php?error=wrongpwd");
+          header("Location: ../index.php?error=wrongpwd&userName=".$userName);
           exit();
         }
         else{
-          header("Location: ../index.php?error=wrongpwd");
+          header("Location: ../index.php?error=wrongpwd&userName=".$userName);
           exit();
         }
       }

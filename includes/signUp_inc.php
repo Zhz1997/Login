@@ -8,8 +8,22 @@ if(isset($_POST['signUp_submit'])){
   $email = $_POST['email'];
 
   #error handle for user inputs
+  $errorInfoA = [];
+  $errorInfo = "";
   if(empty($userName)||empty($pwd)||empty($RePWD)||empty($email)){ #There is/are empty field
-    header("Location: ../signUp.php?error=missinginfo&userName=".$userName);
+    $errorInfo = "error=missinginfo";
+    if(!empty($userName)){
+      $errorInfoA[] = "&userName=$userName";
+    }
+    if(!empty($email)){
+      $errorInfoA[] = "&email=$email";
+    }
+    $len = count($errorInfoA);
+    for ($i=0; $i < $len; $i++) {
+      $errorInfo = $errorInfo.$errorInfoA[$i];
+    }
+    $errorInfo = "Location: ../signUp.php?".$errorInfo;
+    header($errorInfo);
     exit();
   }
   else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){ #Email is not correct
@@ -17,7 +31,7 @@ if(isset($_POST['signUp_submit'])){
     exit();
   }
   else if($pwd !== $RePWD){ #Passwords are not the same
-    header("Location: ../signUp.php?error=passwordcheck&userName=".$userName);
+    header("Location: ../signUp.php?error=passwordcheck&userName=".$userName."&email=".$email);
     exit();
   }
   else{

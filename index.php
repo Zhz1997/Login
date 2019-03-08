@@ -15,7 +15,7 @@
         echo '<div class="centerDiv">';
         echo '<h2> Welcome <h2>'.'<h1>'.$_SESSION['user_name'].'</h1>';
         echo '<form action="includes/logout_inc.php" method="post">
-          <input type="submit" name="login_submit" value="Logout">
+          <input type="submit" name="logout_submit" value="Logout">
         </form>';
         echo '</div>';
       }

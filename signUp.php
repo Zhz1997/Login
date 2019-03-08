@@ -10,29 +10,8 @@
     <title>login</title>
   </head>
   <body>
-    <div class="centerDiv">
-      <h1>Sign Up</h1>
-      <form action="includes/signUp_inc.php" method="post">
-        User Name:<br>
-        <input type="text" name="userName">
-        <br>
-        Email:<br>
-        <input type="text" name="email">
-        <br>
-        Password:<br>
-        <input type="password" name="userPWD">
-        <br>
-        Re enter your password:<br>
-        <input type="password" name="userRePWD"><br>
-        <input type="submit" name="signUp_submit" value="signUp">
-      </form>
-      <?php
-        $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-        if (strpos($url,'signup=success')!==false) {
-          echo "<p class='success'>You have successfully sign up!</p>";
-        }
-       ?>
-      <a href="index.php">Return to login page</a>
-    </div>
+    <?php
+      include 'signupForm.php';
+     ?>
   </body>
 </html>
